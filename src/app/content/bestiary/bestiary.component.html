@@ -1,15 +1,17 @@
 <section>
-  <div class="card" *ngFor="let enemy of beast">
+  <div class="card" *ngFor="let enemy of enemy">
     <div class="card-body">
       <div class="card-body-left">
         <p class="title en"><span class="span-title">Enemy Name</span></p>
         <p>
-          <span class="id">No.{{ enemy.id.toString().padStart(3, "0") }}</span>
+          <span class="id"
+            >No.{{ enemy.id_enemy.toString().padStart(3, "0") }}</span
+          >
           {{ enemy.enemy_name }} <span class="id">Lv.{{ enemy.lv }}</span>
         </p>
         <p class="title hp"><span class="span-title">HP</span></p>
         <p class="id">{{ enemy.hp }}</p>
-        <img src="assets/enemy/{{ enemy.id }}.png" />
+        <img src="assets/enemy/{{ enemy.id_enemy }}.png" />
       </div>
       <div class="card-body-right">
         <p class="exp">
@@ -18,89 +20,109 @@
 
         <p class="title"><span>Weakness</span></p>
         <div class="stats_image">
-          <p *ngIf="enemy.poison === 0" class="weakness info"><img src="assets/stats/poison.png" /></p>
-          <p *ngIf="enemy.curse === 0" class="weakness info"><img src="assets/stats/curse.png" /></p>
-          <p *ngIf="enemy.stone === 0" class="weakness info"><img src="assets/stats/stone.png" /></p>
-          <p *ngIf="enemy.paralyze === 0" ; class="weakness info"><img src="assets/stats/paralyze.png" /></p>
-          <p *ngIf="enemy.fire === 0" class="weakness info"><img src="assets/stats/fire.png" /></p>
-          <p *ngIf="enemy.ice === 0" class="weakness info"><img src="assets/stats/ice.png" /></p>
-          <p *ngIf="enemy.thunder === 0" class="weakness info"><img src="assets/stats/thunder.png" /></p>
-          <p *ngIf="enemy.wind === 0" class="weakness info"><img src="assets/stats/wind.png" /></p>
-          <p *ngIf="enemy.earth === 0" class="weakness info"><img src="assets/stats/earth.png" /></p>
-          <p *ngIf="enemy.light === 0" class="weakness info"><img src="assets/stats/light.png" /></p>
-          <p *ngIf="enemy.dark === 0" class="weakness info"><img src="assets/stats/dark.png" /></p>
+          <p *ngIf="enemy.stats.poison === -1" class="weakness info">
+            <img src="assets/stats/poison.png" />
+          </p>
+          <p *ngIf="enemy.stats.curse === -1" class="weakness info">
+            <img src="assets/stats/curse.png" />
+          </p>
+          <p *ngIf="enemy.stats.stone === -1" class="weakness info">
+            <img src="assets/stats/stone.png" />
+          </p>
+          <p *ngIf="enemy.stats.paralyze === -1" ; class="weakness info">
+            <img src="assets/stats/paralyze.png" />
+          </p>
+          <p *ngIf="enemy.stats.fire === -1" class="weakness info">
+            <img src="assets/stats/fire.png" />
+          </p>
+          <p *ngIf="enemy.stats.ice === -1" class="weakness info">
+            <img src="assets/stats/ice.png" />
+          </p>
+          <p *ngIf="enemy.stats.thunder === -1" class="weakness info">
+            <img src="assets/stats/thunder.png" />
+          </p>
+          <p *ngIf="enemy.stats.wind === -1" class="weakness info">
+            <img src="assets/stats/wind.png" />
+          </p>
+          <p *ngIf="enemy.stats.earth === -1" class="weakness info">
+            <img src="assets/stats/earth.png" />
+          </p>
+          <p *ngIf="enemy.stats.light === -1" class="weakness info">
+            <img src="assets/stats/light.png" />
+          </p>
+          <p *ngIf="enemy.stats.dark === -1" class="weakness info">
+            <img src="assets/stats/dark.png" />
+          </p>
         </div>
 
         <p class="title"><span>Tolerance</span></p>
         <div class="stats_image">
-          <p *ngIf="enemy.poison === 1" class="tolerance info"><img src="assets/stats/pison.png" /></p>
-          <p *ngIf="enemy.curse === 1" class="tolerance info"><img src="assets/stats/curse.png" /></p>
-          <p *ngIf="enemy.stone === 1" class="tolerance info"><img src="assets/stats/stone.png" /></p>
-          <p *ngIf="enemy.paralyze === 1" ; class="tolerance info"><img src="assets/stats/paralyze.png" /></p>
-          <p *ngIf="enemy.fire === 1" class="tolerance info"><img src="assets/stats/fire.png" /></p>
-          <p *ngIf="enemy.ice === 1" class="tolerance info"><img src="assets/stats/ice.png" /></p>
-          <p *ngIf="enemy.thunder === 1" class="tolerance info"><img src="assets/stats/thunder.png" /></p>
-          <p *ngIf="enemy.wind === 1" class="tolerance info"><img src="assets/stats/wind.png" /></p>
-          <p *ngIf="enemy.earth === 1" class="tolerance info"><img src="assets/stats/earth.png" /></p>
-          <p *ngIf="enemy.light === 1" class="tolerance info"><img src="assets/stats/light.png" /></p>
-          <p *ngIf="enemy.dark === 1" class="tolerance info"><img src="assets/stats/dark.png" /></p>
+          <p *ngIf="enemy.stats.poison === 1" class="tolerance info">
+            <img src="assets/stats/pison.png" />
+          </p>
+          <p *ngIf="enemy.stats.curse === 1" class="tolerance info">
+            <img src="assets/stats/curse.png" />
+          </p>
+          <p *ngIf="enemy.stats.stone === 1" class="tolerance info">
+            <img src="assets/stats/stone.png" />
+          </p>
+          <p *ngIf="enemy.stats.paralyze === 1" ; class="tolerance info">
+            <img src="assets/stats/paralyze.png" />
+          </p>
+          <p *ngIf="enemy.stats.fire === 1" class="tolerance info">
+            <img src="assets/stats/fire.png" />
+          </p>
+          <p *ngIf="enemy.stats.ice === 1" class="tolerance info">
+            <img src="assets/stats/ice.png" />
+          </p>
+          <p *ngIf="enemy.stats.thunder === 1" class="tolerance info">
+            <img src="assets/stats/thunder.png" />
+          </p>
+          <p *ngIf="enemy.stats.wind === 1" class="tolerance info">
+            <img src="assets/stats/wind.png" />
+          </p>
+          <p *ngIf="enemy.stats.earth === 1" class="tolerance info">
+            <img src="assets/stats/earth.png" />
+          </p>
+          <p *ngIf="enemy.stats.light === 1" class="tolerance info">
+            <img src="assets/stats/light.png" />
+          </p>
+          <p *ngIf="enemy.stats.dark === 1" class="tolerance info">
+            <img src="assets/stats/dark.png" />
+          </p>
         </div>
 
         <p class="title"><span>Item Dropped</span></p>
-        <p *ngIf="enemy.material_name; else empty" class="dropped info">
-          <img src="assets/materials/{{ enemy.material_name }}.png" />
-          {{ enemy.material_name }}
-        </p>
-        <ng-template #empty>
-          <p class="dropped info">---</p>
-        </ng-template>
-
-        <p *ngIf="enemy.item_name; else helmet" class="dropped info">
-          <img src="assets/items/{{ enemy.item_name }}.png" />
-          {{ enemy.item_name }}
-        </p>
-        <ng-template #helmet
-          ><p *ngIf="enemy.helmet_name; else weapon" class="dropped info">
-            <img src="assets/helmets/{{ enemy.helmet_name }}.png" />
-            {{ enemy.helmet_name }}
-          </p></ng-template
-        >
-        <ng-template #weapon>
-          <p *ngIf="enemy.weapon_name; else empty" class="dropped info">
-            <img src="assets/weapons/{{ enemy.weapon_name }}.png" />
-            {{ enemy.weapon_name }}
+        <ng-container *ngFor="let dropped of enemy.enemy_dropped">
+          <p class="dropped info">
+            <img src="assets/{{ dropped.category }}/{{ dropped.name }}.png" />
+            {{ dropped.name }}
           </p>
-        </ng-template>
+        </ng-container>
+        <ng-container *ngIf="enemy.enemy_dropped.length === 1">
+          <p class="dropped info">---</p>
+        </ng-container>
+        <ng-container *ngIf="enemy.enemy_dropped.length === 0">
+          <p class="dropped info">---</p>
+          <p class="dropped info">---</p>
+        </ng-container>
 
         <p class="title"><span>Steal</span></p>
-        <p
-          *ngIf="enemy.steal_item_name; else steal_material"
-          class="steal info"
-        >
-          <img src="assets/items/{{ enemy.steal_item_name }}.png" />
-          {{ enemy.steal_item_name }}
-        </p>
-        <ng-template #steal_material>
-          <p
-            *ngIf="enemy.steal_material_name; else steal_money"
-            class="steal info"
-          >
-            <img src="assets/materials/{{ enemy.steal_material_name }}.png" />
-            {{ enemy.steal_material_name }}
+        <ng-container *ngFor="let stolen of enemy.enemy_stolen">
+          <p class="dropped info">
+            <img src="assets/{{ stolen.category }}/{{ stolen.name }}.png" />
+            {{ stolen.name }}
           </p>
-        </ng-template>
-        <ng-template #steal_money>
-          <p *ngIf="enemy.steal_money_amount; else empty" class="steal info">
-            <img src="assets/money/{{ enemy.steal_money_amount }}.png" />
-            {{ enemy.steal_money_amount }}
-          </p>
-        </ng-template>
+        </ng-container>
+        <ng-container *ngIf="enemy.enemy_stolen.length === 0">
+          <p class="dropped info">---</p>
+        </ng-container>
       </div>
     </div>
 
     <div class="card-footer">
       <p class="description">
-        {{ enemy.description }}
+        {{ enemy.enemy_description }}
       </p>
     </div>
   </div>
